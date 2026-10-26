@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1793033598|1745655';
+const CACHE_VERSION = '1793038386|1470468';
 /** @type {string} */
 const CACHE_PREFIX = 'Trinova: Merge P-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
