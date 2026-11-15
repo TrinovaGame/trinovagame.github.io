@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crockery Crash</title>
+<meta name="description" content="A friend challenged you to a shelf in Crockery Crash. Open the game and type the code.">
+<style>
+:root { color-scheme: light dark; --bg:#fff8ee; --fg:#2b2118; --h:#b3541e; --box:#ffffff; --line:#e6d6bf; }
+@media (prefers-color-scheme: dark) { :root { --bg:#1d1712; --fg:#f1e7da; --h:#ffb36b; --box:#2a221b; --line:#3b3027; } }
+body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.6 -apple-system,"Segoe UI",Roboto,sans-serif; }
+main { max-width:560px; margin:0 auto; padding:40px 18px 64px; text-align:center; }
+h1 { font-size:34px; margin:0 0 8px; color:var(--h); }
+.code { font:700 34px/1.2 ui-monospace,Menlo,monospace; letter-spacing:2px; background:var(--box); border:3px solid #f5b72e;
+  border-radius:18px; padding:18px 12px; margin:22px 0; word-break:break-all; }
+button { font:600 17px -apple-system,sans-serif; border:0; border-radius:12px; padding:12px 22px; background:#4fbf98; color:#fff; }
+ol { text-align:left; display:inline-block; margin:8px auto; }
+hr { border:0; border-top:1px solid var(--line); margin:36px 0; }
+.small { opacity:.75; font-size:15px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Crockery Crash</h1>
+<p id="lead-en">A friend challenged you to a shelf!</p>
+<div class="code" id="code">&mdash;</div>
+<button id="copy" type="button">Copy code</button>
+<ol>
+<li>Get <b>Crockery Crash</b> from the App Store (search &ldquo;Crockery Crash&rdquo;).</li>
+<li>Tap <b>Friends</b> on the home screen.</li>
+<li>Paste the code and tap <b>Play</b>.</li>
+</ol>
+<hr>
+<p id="lead-tr">Bir arkada&#351;&#305;n sana bir raf g&ouml;nderdi!</p>
+<ol>
+<li>App Store&rsquo;dan <b>Crockery Crash</b>&rsquo;i indir (&ldquo;Crockery Crash&rdquo; diye ara).</li>
+<li>Ana ekranda <b>Arkada&#351;lar</b>&rsquo;a dokun.</li>
+<li>Kodu yap&#305;&#351;t&#305;r ve <b>Oyna</b>&rsquo;ya dokun.</li>
+</ol>
+<p class="small"><a href="privacy.html">Privacy / Gizlilik</a> &middot; <a href="support.html">Support / Destek</a></p>
+</main>
+<script>
+(function () {
+  var m = /[?&]c=([0-9A-Za-z-]{8,16})/.exec(location.search);
+  var code = m ? m[1].toUpperCase() : "";
+  var box = document.getElementById("code");
+  var btn = document.getElementById("copy");
+  if (code) { box.textContent = code; } else { box.textContent = "Crockery Crash"; btn.style.display = "none"; }
+  btn.addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(code).then(function () { btn.textContent = "Copied! / Kopyalandı!"; }); }
+  });
+})();
+</script>
+</body>
+</html>
