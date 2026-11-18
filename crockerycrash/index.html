@@ -17,6 +17,7 @@ button { font:600 17px -apple-system,sans-serif; border:0; border-radius:12px; p
 ol { text-align:left; display:inline-block; margin:8px auto; }
 hr { border:0; border-top:1px solid var(--line); margin:36px 0; }
 .small { opacity:.75; font-size:15px; }
+a.store { display:inline-block; margin-top:14px; background:#111; color:#fff; text-decoration:none; font-weight:600; border-radius:12px; padding:12px 22px; }
 </style>
 </head>
 <body>
@@ -25,6 +26,7 @@ hr { border:0; border-top:1px solid var(--line); margin:36px 0; }
 <p id="lead-en">A friend challenged you to a shelf!</p>
 <div class="code" id="code">&mdash;</div>
 <button id="copy" type="button">Copy code</button>
+<p id="store" style="display:none"><a id="store-link" class="store" href="#">App Store &mdash; Download / &#304;ndir</a></p>
 <ol>
 <li>Get <b>Crockery Crash</b> from the App Store (search &ldquo;Crockery Crash&rdquo;).</li>
 <li>Tap <b>Friends</b> on the home screen.</li>
@@ -40,14 +42,21 @@ hr { border:0; border-top:1px solid var(--line); margin:36px 0; }
 <p class="small"><a href="privacy.html">Privacy / Gizlilik</a> &middot; <a href="support.html">Support / Destek</a></p>
 </main>
 <script>
+// Crockery Crash's Apple ID (digits only): fill once App Store Connect has
+// the app (same value as data/links.json "app_store_id"); empty = no button.
+var APP_STORE_ID = "6836513170";
 (function () {
+  if (APP_STORE_ID) {
+    document.getElementById("store-link").href = "https://apps.apple.com/app/id" + APP_STORE_ID;
+    document.getElementById("store").style.display = "block";
+  }
   var m = /[?&]c=([0-9A-Za-z-]{8,16})/.exec(location.search);
   var code = m ? m[1].toUpperCase() : "";
   var box = document.getElementById("code");
   var btn = document.getElementById("copy");
   if (code) { box.textContent = code; } else { box.textContent = "Crockery Crash"; btn.style.display = "none"; }
   btn.addEventListener("click", function () {
-    if (navigator.clipboard) { navigator.clipboard.writeText(code).then(function () { btn.textContent = "Copied! / Kopyalandı!"; }); }
+    if (navigator.clipboard) { navigator.clipboard.writeText(code).then(function () { btn.textContent = "Copied! / Kopyaland\u0131!"; }); }
   });
 })();
 </script>
